@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dannunzio's page!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --very-light-pink:#C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green:#ACD9B2;
+    --white:#FFFFFF;
+    --black:#000000;
+    --dark:#232830;
+    --sm:14px;
+    --md:16px;
+    --bg:18px;
+}
+
+html {
+    height:100vh;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin:0;
+    height:100%;
+}
+
+.bg {
+    font-size: var(--bg);
+}
+
+.md {
+    font-size: var(--md);
+}
+
+.sm {
+    font-size: var(--sm);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.navBar {
+    width: auto;
+    height: 7vh;
+    border-bottom: 1px solid var(--very-light-pink);
+    display: grid;
+    grid-template-columns: 1fr 3fr 5fr 0.5fr;
+    place-items: center;
+    padding-left: 10px;
+    column-gap: 2.5px;
+}
+
+.navButton {
+    color: #C7C7C7;
+    border: 0;
+    background-color: white;
+    height: 25px;
+}
+
+.navButton:hover {
+    color: var(--hospital-green);
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    color: #ACD9B2;
+}
+
+.navButton:active {
+    color: var(--hospital-green);
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    color: #ACD9B2;
+    background-color: var(--text-input-field);
+}
+
+.input--search {
+    width: 50%;
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+    padding-left: 7px;
+    height: 20px;
+    position:relative;
+    left:50%;
+    transform: translateX(-50%)
+}
+
+.input--search:hover {
+    border-color: var(--hospital-green);
+}
+
+.shoppingCart {
+    background-color: white;
+    border: 0;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.shoppingCart:hover {
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+}
+
+.shoppingCart:active {
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    background-color: var(--text-input-field);
+}
+
+.main {
+    width: 100%;
+    /* Importante poner el height siempre en vh, porque por defecto
+    no ocupa todo el vh como si hace el width por el display en bloque*/
+    height: 84vh;
+    /* Es una forma rapidisma de centrar*/
+    display: grid;
+    grid-template-rows: auto;
+    place-items: center;
+}
+
+/* No tener miedo con el grid */
+.form-container {
+    /* margin:auto; funciona, pero solo a los laterales, y es un problema centrarlo verticalmente.
+    Es mejor directamente usar un grid.*/
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    width:300px;
+    text-align: center;
+}
+/*Algo para analizar: intenté no utilizar el form-container dado que creí que no era necesario.
+Sin embargo, entiendo ahora lo que hizo: en .main setea el ancho y el largo de la parte principal, y solo
+usa grid para centrar el container. Por otro lado, el container tiene height auto.*/
+
+
+.title {
+    margin-bottom: 44px;
+    text-align: left;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs--create {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    display:block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom:4px;
+}
+
+.input {
+    background-color: var(--text-input-field);
+    height:32px;
+    font-size: var(--sm);
+    border-radius: 10px;
+    border:0;
+    padding-left: 10px;
+}
+
+.loginInput {
+    display:block;
+    margin-bottom: 16px;
+    width:100%;
+}
+
+.input::placeholder {
+    color:var(--very-light-pink);
+}
+
+.button-submit {
+    width: 100%;
+    height:50px;
+    border:0;
+    background-color: var(--hospital-green);
+    border-radius: 10px;
+    color: var(--white);
+    margin-top:20px;
+}
+
+.button-submit:hover {
+    background-color: lightgreen;
+}
+
+.button-submit:active {
+    background-color: rgb(0, 161, 0);
+}
+
+footer {
+    text-align:center;
+    height: 4vh;
+    position: relative;
+    color:var(--very-light-pink);
+}
+
+/*MUY CORE!*/
+@media (max-width: 640px) {
+    footer {
+        display: none;
+    }
+
+    .navBar {
+        display:none;
+    }
+
+    .main {
+        height: 100%;   
+    }
+
+    .form-container {
+        height: 100%;
+    }
+
+    .form {
+        height: 100%;
+        justify-content: space-between;
+        padding:16px 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navBar">
+        <img src="logos/logo_yard_sale.svg" alt="logo">
+        <div class="buttons">
+            <button class="navButton">All</button>
+            <button class="navButton">Clothes</button>
+            <button class="navButton">Electronics</button>
+            <button class="navButton">Furniture</button>
+            <button class="navButton">Toys</button>
+            <button class="navButton">Others</button>
+        </div>
+        <input type="text" class="input input--search" placeholder="Search something!">
+        <button class="shoppingCart"><img src="icons/icon_shopping_cart.svg" alt="shoppingCart"></button>
+    </nav>
+    <section class="main">
+        <div class="form-container">
+            <form class="form" action="">
+                <div class="inputs--create">
+                    <h1 class="title bg">My account</h1>
+                    <label for="name" class="label sm">Name</label>
+                    <input id="name" type="password" 
+                    placeholder="Your name" class="input loginInput input--name">
+                    <label for="emailAddress" class="label sm">Email address</label>
+                    <input id="emailAddress" type="text" placeholder="youremail@example.com.ar"
+                    class="input loginInput input--email">
+                    <label for="password" class="label sm">Password</label>
+                    <input id="password" type="password" 
+                    placeholder="Password" class="input loginInput input--password">
+                </div>
+                <button type="submit" value="create" class="primary-button button-submit md">Create</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p class="footer-text sm">d'annunzio enterprises. all rights reserved.</p>
+    </footer>
+</body>
+</html>

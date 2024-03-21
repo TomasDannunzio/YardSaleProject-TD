@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --very-light-pink:#C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green:#ACD9B2;
+    --white:#FFFFFF;
+    --black:#000000;
+    --dark:#232830;
+    --sm:14px;
+    --md:16px;
+    --bg:18px;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin:0;
+}
+
+.product-price,.number-articles,.product-name,.info-total-price {
+    font-family: sans-serif;
+}
+
+.bg {
+    font-size: var(--bg);
+}
+
+.md {
+    font-size: var(--md);
+}
+
+.sm {
+    font-size: var(--sm);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.navBar {
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid var(--very-light-pink);
+    display: grid;
+    grid-template-columns: 1fr 3fr 5fr 0.5fr;
+    place-items: center;
+    padding-left: 10px;
+    column-gap: 2.5px;
+    position: sticky;
+    top:0;
+    left:0;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.navButton {
+    color: #C7C7C7;
+    border: 0;
+    background-color: white;
+    height: 25px;
+}
+
+.navButton:hover {
+    color: var(--hospital-green);
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    color: #ACD9B2;
+}
+
+.navButton:active {
+    color: var(--hospital-green);
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    color: #ACD9B2;
+    background-color: var(--text-input-field);
+}
+
+.button-account {
+    border:0;
+    font-size: var(--md);
+    background-color: var(--white);
+    color:var(--very-light-pink);
+    justify-self: end;
+}
+
+/* .input--search {
+    width: 50%;
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+    padding-left: 7px;
+    height: 20px;
+    position:relative;
+    left:50%;
+    transform: translateX(-50%)
+}
+
+.input--search:hover {
+    border-color: var(--hospital-green);
+} */
+
+.shoppingCart {
+    background-color: white;
+    border: 0;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.shoppingCart:hover {
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+}
+
+.shoppingCart:active {
+    border: 1px solid #ACD9B2;
+    border-radius: 10px;
+    background-color: var(--text-input-field);
+
+}
+
+.my-order-container {
+    width: 100%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    margin-top:60px;
+    box-sizing: border-box;
+}
+
+.my-order {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.title {
+    margin:0;
+    margin-bottom:32px
+
+}
+
+.my-order-info {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--text-input-field);
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* Place NO, align. Ojo con eso, hace mucha diferencia. */
+    align-items: center;
+    padding:0 20px;
+}
+
+.info-date-and-number span {
+    display:block;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.number-articles {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    font-weight: lighter;
+}
+
+.info-total-price {
+    font-weight: bold;
+    text-align: end;
+    margin:0;
+}
+
+.articles {
+    display:flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* core, siempre */
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom:20px;
+    height: 80px;
+}
+
+.img-and-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.img-and-name figure {
+    margin:0; 
+    margin-right: 15px; 
+}
+
+.product-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.product-name {
+    /* Es la salida rapida, pero no va:
+    position:relative;
+    top:50%;
+    transform: translateY(-50%); */
+    color: var(--very-light-pink);
+    font-weight:lighter;
+    font-size: var(--sm);
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+
+
+@media (max-width:675px) {
+    .navBar {
+        display:none;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navBar">
+        <img src="logos/logo_yard_sale.svg" alt="logo">
+        <div class="buttons">
+            <button class="navButton">All</button>
+            <button class="navButton">Clothes</button>
+            <button class="navButton">Electronics</button>
+            <button class="navButton">Furniture</button>
+            <button class="navButton">Toys</button>
+            <button class="navButton">Others</button>
+        </div>
+        <!--<input type="text" class="input input--search" placeholder="Search something!">-->
+        <button class="button-account" type="menu">youremail@example.com</button>
+        <button class="shoppingCart"><img src="icons/icon_shopping_cart.svg" alt="shoppingCart"></button>
+    </nav>
+    <section class="my-order-container">
+        <div class="my-order">
+            <h1 class="title md">My order</h1>
+            <section class="my-order-info">
+                <p class="info-date-and-number">
+                    <span class="date">11.03.2024</span>
+                    <span class="number-articles">4 articles</span>
+                </p>
+                <p class="info-total-price">$280.000,00</p>                
+            </section>
+            <section class="articles">
+                <article class="card-container">
+                    <div class="img-and-name">
+                        <figure>
+                            <img class="product-img" src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A bike">
+                        </figure>
+                        <p class="product-name">Motorcycle</p>
+                    </div>
+                    <p class="product-price">$70.000,00</p>
+                </article>
+                <article class="card-container">
+                    <div class="img-and-name">
+                        <figure>
+                            <img class="product-img" src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A bike">
+                        </figure>
+                        <p class="product-name">Motorcycle</p>
+                    </div>
+                    <p class="product-price">$70.000,00</p>
+                </article>
+                <article class="card-container">
+                    <div class="img-and-name">
+                        <figure>
+                            <img class="product-img" src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A bike">
+                        </figure>
+                        <p class="product-name">Motorcycle</p>
+                    </div>
+                    <p class="product-price">$70.000,00</p>
+                </article>
+                <article class="card-container">
+                    <div class="img-and-name">
+                        <figure>
+                            <img class="product-img" src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A bike">
+                        </figure>
+                        <p class="product-name">Motorcycle</p>
+                    </div>
+                    <p class="product-price">$70.000,00</p>
+                </article>
+            </section>
+        </div>
+    </section>
+</body>
+</html>
